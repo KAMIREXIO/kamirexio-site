@@ -3,52 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAMIREXIO | Community Hub</title>
+    <title>KAMIREXIO | Unofficial Fan Hub</title>
+    <meta name="description" content="Community guides and shortened resources for the Kamirai ecosystem by KAMIREXIO.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #0b0f1a; color: #e2e8f0; }
-        .cyber-border { border: 1px solid #1e293b; transition: all 0.3s; }
-        .cyber-border:hover { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        
+        body { 
+            background-color: #05080f; 
+            color: #e2e8f0; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, #05080f 80%);
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cyber-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Animated background grid */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-grid">
 
-    <nav class="p-6 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-black tracking-tighter text-sky-400">KAMIREXIO</h1>
-            <span class="px-3 py-1 text-xs font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full">UNOFFICIAL FAN SITE</span>
+    <nav class="p-5 border-b border-white/5 glass sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center font-black text-white shadow-[0_0_15px_rgba(56,189,248,0.4)]">K</div>
+                <h1 class="text-xl font-bold tracking-tight glow-text text-white">KAMIREXIO</h1>
+            </div>
+            <div class="hidden md:block">
+                <span class="px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full uppercase">
+                    Unofficial Fan Portal
+                </span>
+            </div>
         </div>
     </nav>
 
-    <main class="flex-grow max-w-4xl mx-auto px-6 py-16 text-center">
-        <h2 class="text-5xl font-extrabold mb-4 text-white">Exploring the Kamirai Ecosystem</h2>
-        <p class="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">
-            Documentation, video guides, and shortened resources for the Kamirai community. 
-            Focused on security and transparency.
-        </p>
+    <main class="flex-grow max-w-6xl mx-auto px-6 py-12 w-full">
+        
+        <section class="text-center mb-20">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 text-white leading-tight">
+                Master the <span class="text-sky-400">Kamirai</span> Ecosystem
+            </h2>
+            <div class="max-w-2xl mx-auto glass p-8 rounded-3xl border border-white/5">
+                <h3 class="text-sky-400 font-bold mb-3 uppercase tracking-widest text-sm">Channel Mission</h3>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    Welcome to the KAMIREXIO hub. This channel is dedicated to providing high-quality video guides, technical documentation, and curated resources for the Kamirai community. Whether you are a beginner or a power user, our goal is to simplify your experience through detailed tutorials and direct access links.
+                </p>
+            </div>
+        </section>
 
-        <div class="grid gap-6 md:grid-cols-2 text-left">
-            
-            <a href="https://www.youtube.com/@KAMIREXIO" target="_blank" class="p-6 rounded-2xl cyber-border bg-slate-900/40">
-                <h3 class="text-xl font-bold text-sky-400 mb-2">Main Channel →</h3>
-                <p class="text-sm text-slate-500">Access the full video library on YouTube.</p>
-            </a>
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-px bg-sky-500/30 flex-grow"></div>
+                <h3 class="text-xl font-bold text-white whitespace-nowrap"><i class="fa-solid fa-bolt text-sky-400 mr-2"></i> Fast Link Directory</h3>
+                <div class="h-px bg-sky-500/30 flex-grow"></div>
+            </div>
 
-            <a href="./go/intro.html" class="p-6 rounded-2xl cyber-border bg-slate-900/40">
-                <h3 class="text-xl font-bold text-purple-400 mb-2">Latest Guide [Fast Link] →</h3>
-                <p class="text-sm text-slate-500">Direct redirect to my newest tutorial video.</p>
-            </a>
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                
+                <a href="https://www.youtube.com/@KAMIREXIO" target="_blank" class="p-6 rounded-2xl glass cyber-card group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-red-500/10 rounded-xl text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                            <i class="fa-brands fa-youtube text-xl"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 text-xs"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-1">Main Channel</h4>
+                    <p class="text-xs text-slate-500">Subscribe for the latest video tutorials.</p>
+                </a>
 
-        </div>
+                <a href="#" class="p-6 rounded-2xl glass cyber-card group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-sky-500/10 rounded-xl text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-book text-xl"></i>
+                        </div>
+                        <span class="text-[10px] bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded uppercase font-bold tracking-tighter">Newest</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-1">Getting Started Guide</h4>
+                    <p class="text-xs text-slate-500">The essential setup for Kamirai beginners.</p>
+                </a>
+
+                <a href="#" class="p-6 rounded-2xl glass cyber-card group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-purple-500/10 rounded-xl text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-download text-xl"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-white font-bold mb-1">Resource Pack [Direct]</h4>
+                    <p class="text-xs text-slate-500">Fast-access download for community files.</p>
+                </a>
+
+                <a href="#" class="p-6 rounded-2xl glass cyber-card group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-white font-bold mb-1">Security Audit v2.0</h4>
+                    <p class="text-xs text-slate-500">Our latest transparency report and tips.</p>
+                </a>
+
+                <a href="#" class="p-6 rounded-2xl glass cyber-card group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-amber-500/10 rounded-xl text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-list-check text-xl"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-white font-bold mb-1">Full Playlist</h4>
+                    <p class="text-xs text-slate-500">Browse all videos in chronological order.</p>
+                </a>
+
+                <a href="#" class="p-6 rounded-2xl glass cyber-card group border-dashed border-white/10">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-white/5 rounded-xl text-slate-400">
+                            <i class="fa-solid fa-plus text-xl"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-slate-400 font-bold mb-1">Suggest Content</h4>
+                    <p class="text-xs text-slate-600">Have a request? Join the comments section.</p>
+                </a>
+
+            </div>
+        </section>
     </main>
 
-    <footer class="p-10 border-t border-slate-800 bg-slate-950 text-center">
-        <div class="max-w-2xl mx-auto space-y-4">
-            <p class="text-xs text-slate-500 leading-relaxed uppercase tracking-widest">
-                Disclaimer: KAMIREXIO is an independent fan project. We are not affiliated with, authorized, maintained, sponsored or endorsed by the official Kamirai team. 
-            </p>
-            <p class="text-[10px] text-slate-700 font-mono">
-                Site Status: Static & Secure | No Database | Immutable Infrastructure
+    <footer class="mt-auto border-t border-white/5 bg-black/40 backdrop-blur-xl">
+        <div class="max-w-4xl mx-auto px-6 py-12 text-center">
+            <div class="flex justify-center gap-6 mb-8 text-slate-500 text-xl">
+                <a href="https://www.youtube.com/@KAMIREXIO" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            
+            <div class="p-6 rounded-2xl border border-amber-500/20 bg-amber-500/5 inline-block">
+                <p class="text-[11px] text-slate-400 leading-relaxed uppercase tracking-widest max-w-2xl">
+                    <strong class="text-amber-500/80 block mb-2 underline decoration-amber-500/20 underline-offset-4">Legal Disclaimer</strong>
+                    KAMIREXIO is an independent fan project. We are not affiliated with, authorized, maintained, sponsored or endorsed by the official Kamirai team. All trademarks and copyrights belong to their respective owners.
+                </p>
+            </div>
+            
+            <p class="mt-8 text-slate-600 text-[10px] font-mono">
+                &copy; 2026 KAMIREXIO // ESTABLISHED FOR THE COMMUNITY
             </p>
         </div>
     </footer>
