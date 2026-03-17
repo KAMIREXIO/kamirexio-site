@@ -5,103 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAMIREXIO | Unofficial Fan Hub</title>
     <meta name="description" content="Community guides and shortened resources for the Kamirai ecosystem by KAMIREXIO.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
         
         body { 
-            background-color: #05080f; 
-            color: #e2e8f0; 
             font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Dark Mode Background */
+        .dark body {
+            background-color: #05080f; 
             background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, #05080f 80%);
         }
 
+        /* Light Mode Background */
+        body {
+            background-color: #f8fafc;
+            background-image: radial-gradient(circle at 50% -20%, #e2e8f0 0%, #f8fafc 80%);
+        }
+
         .glass {
-            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .light .glass {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(15, 23, 42, 0.05);
         }
 
         .card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(56, 189, 248, 0.1);
         }
+
+        .dark .card { border: 1px solid rgba(56, 189, 248, 0.1); }
+        .light .card { border: 1px solid rgba(15, 23, 42, 0.1); }
 
         .card:hover {
             transform: translateY(-5px);
             border-color: #38bdf8;
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
-            background: rgba(30, 41, 59, 0.5);
         }
 
         .glow-text {
             text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
 
-        /* Animated background grid */
         .bg-grid {
             background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+        }
+        .dark .bg-grid {
             background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen bg-grid">
+<body class="flex flex-col min-h-screen bg-grid dark:text-slate-200 text-slate-800">
 
-    <nav class="p-5 border-b border-white/5 glass sticky top-0 z-50">
+    <nav class="p-5 border-b dark:border-white/5 border-slate-200 glass sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center font-black text-white shadow-[0_0_15px_rgba(56,189,248,0.4)]">K</div>
-                <h1 class="text-xl font-bold tracking-tight glow-text text-white">KAMIREXIO</h1>
+                <h1 class="text-xl font-bold tracking-tight glow-text dark:text-white text-slate-900">KAMIREXIO</h1>
             </div>
-            <div class="hidden md:block">
-                <span class="px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full uppercase">
-                    Unofficial Fan Website
-                </span>
+            
+            <div class="flex items-center gap-6">
+                <button id="theme-toggle" class="p-2.5 rounded-xl bg-sky-500/10 text-sky-500 border border-sky-500/20 hover:bg-sky-500/20 transition-all">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+                <div class="hidden md:block">
+                    <span class="px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full uppercase">
+                        Unofficial Fan Website
+                    </span>
+                </div>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow max-w-6xl mx-auto px-6 py-12 w-full">
         
-        <section class="text-center mb-20">
-            <h2 class="text-4xl md:text-6xl font-black mb-6 text-white leading-tight">
+        <section class="text-center mb-20" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 dark:text-white text-slate-900 leading-tight">
                 Welcome to Era of <span class="text-sky-400">Kamirai</span>
             </h2>
-            <div class="max-w-2xl mx-auto glass p-8 rounded-3xl border border-white/5">
+            <div class="max-w-2xl mx-auto glass p-8 rounded-3xl border dark:border-white/5 border-slate-200">
                 <h3 class="text-sky-400 font-bold mb-3 uppercase tracking-widest text-sm">Channel Mission</h3>
-                <p class="text-slate-400 text-lg leading-relaxed">
+                <p class="dark:text-slate-400 text-slate-600 text-lg leading-relaxed">
                     Welcome to the KAMIREXIO world. This channel is dedicated to providing high-quality video guides, technical documentation, and curated resources for the Kamirai community. Whether you are a beginner or a power user, our goal is to simplify your experience through detailed tutorials and direct access links.
                 </p>
             </div>
         </section>
 
         <section class="mb-20">
-            <div class="flex items-center gap-4 mb-8">
+            <div class="flex items-center gap-4 mb-8" data-aos="fade-right">
                 <div class="h-px bg-sky-500/30 flex-grow"></div>
-                <h3 class="text-xl font-bold text-white whitespace-nowrap"><i class="fa-solid fa-bolt text-sky-400 mr-2"></i> Fast Link Directory</h3>
+                <h3 class="text-xl font-bold dark:text-white text-slate-900 whitespace-nowrap"><i class="fa-solid fa-bolt text-sky-400 mr-2"></i> Fast Link Directory</h3>
                 <div class="h-px bg-sky-500/30 flex-grow"></div>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                
-                <a href="https://www.youtube.com/@KAMIREXIO" target="_blank" class="p-6 rounded-2xl glass cyber-card group">
+                <a href="https://www.youtube.com/@KAMIREXIO" target="_blank" class="p-6 rounded-2xl glass card group" data-aos="zoom-in" data-aos-delay="100">
                     <div class="flex justify-between items-start mb-4">
                         <div class="p-3 bg-red-500/10 rounded-xl text-red-500 group-hover:bg-red-500 group-hover:text-white transition-colors">
                             <i class="fa-brands fa-youtube text-xl"></i>
                         </div>
                         <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 text-xs"></i>
                     </div>
-                    <h4 class="text-white font-bold mb-1">Main Channel</h4>
+                    <h4 class="dark:text-white text-slate-900 font-bold mb-1">Main Channel</h4>
                     <p class="text-xs text-slate-500">Subscribe for the latest video tutorials.</p>
                 </a>
+                
+                <div class="p-6 rounded-2xl glass card opacity-60 border-dashed" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="p-3 bg-sky-500/10 w-fit rounded-xl text-sky-400 mb-4">
+                        <i class="fa-solid fa-link text-xl"></i>
+                    </div>
+                    <h4 class="dark:text-white text-slate-900 font-bold mb-1">Upcoming Guide</h4>
+                    <p class="text-xs text-slate-500">New content arriving soon.</p>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="mt-auto border-t border-white/5 bg-black/40 backdrop-blur-xl">
+    <footer class="mt-auto border-t dark:border-white/5 border-slate-200 dark:bg-black/40 bg-white/40 backdrop-blur-xl" data-aos="fade-in">
         <div class="max-w-4xl mx-auto px-6 py-12 text-center">
             <div class="flex justify-center gap-6 mb-8 text-slate-500 text-xl">
                 <a href="https://www.youtube.com/@KAMIREXIO" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
@@ -120,5 +165,34 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Load saved preference
+        if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            html.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.replace('dark', 'light');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.replace('light', 'dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
